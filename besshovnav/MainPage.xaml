@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="besshovnav.MainPage">
+    <Grid>
+
+  
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+         
+            <RowDefinition Height="Auto" />
+          
+        </Grid.RowDefinitions>
+
+       
+        <WebView x:Name="YandexMapView"
+                 Grid.Row="0" HeightRequest="800"/>
+
+      
+        <Grid x:Name="BuildingView"
+              Grid.Row="0"
+              IsVisible="False">
+     
+            <Label x:Name="FloorLabel"
+            Text=""
+            FontSize="15"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            Margin="0,20,0,0" />
+         
+            <AbsoluteLayout BackgroundColor="Transparent"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand" 
+                            HeightRequest="100" WidthRequest="180" Rotation="18">
+
+                <Image Source="floorone.jpg" HeightRequest="150" WidthRequest="180" Rotation="180" Margin="0,-25,0,0" x:Name="floorone" IsVisible="False"/>
+
+                <Image Source="floortwo.jpg" HeightRequest="150" WidthRequest="180" Rotation="180" Margin="0,-25,0,0" x:Name="floortwo" IsVisible="False"/>
+
+                <Image Source="floorthree.jpg" HeightRequest="150" WidthRequest="180" Rotation="180" Margin="0,-25,0,0" x:Name="floorthree" IsVisible="False"/>
+
+
+                <BoxView x:Name="Room1_2"
+                         StyleId="холл"
+                         Color="White"
+                         IsVisible="False"
+                         AbsoluteLayout.LayoutBounds="0.55,0.8,0.25,0.4"
+                         AbsoluteLayout.LayoutFlags="All" />
+
+                <BoxView x:Name="Room2_1"
+                         StyleId="зал"
+                         Color="White"
+                         AbsoluteLayout.LayoutBounds="0.45,0.3,0.28,0.9"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False" />
+
+                <BoxView x:Name="Room3_1"
+                         StyleId="IT-квантум"
+                         Color="White"
+                         HeightRequest="30" WidthRequest="40"
+                         AbsoluteLayout.LayoutBounds="0.4,0.8,0.2,0.02"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False" />
+
+                <BoxView x:Name="Room4_1"
+                         StyleId="Room4_1"
+                         Color="MediumPurple"
+                         AbsoluteLayout.LayoutBounds="0.1,0.1,0.2,0.2"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False" />
+
+      
+                <BoxView x:Name="Room4_2"
+                         StyleId="Room4_2"
+                         Color="MediumSlateBlue"
+                         AbsoluteLayout.LayoutBounds="0.4,0.1,0.2,0.2"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False" />
+
+                <BoxView x:Name="Room4_3"
+                         StyleId="Room4_3"
+                         Color="MediumSpringGreen"
+                         AbsoluteLayout.LayoutBounds="0.1,0.4,0.2,0.2"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False" />
+
+
+                <BoxView x:Name="Room4_4"
+                         StyleId="Room4_4"
+                         Color="MediumTurquoise"
+                         AbsoluteLayout.LayoutBounds="0.4,0.4,0.2,0.2"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False" />
+
+
+                <BoxView x:Name="Room5_1"
+                         StyleId="Room5_1"
+                         Color="Orange"
+                         AbsoluteLayout.LayoutBounds="0.3,0.3,0.4,0.4"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False" />
+
+                <BoxView x:Name="IndoorUserMarker" BackgroundColor="Transparent"
+            Color="Blue"
+            WidthRequest="15"
+            HeightRequest="15"
+            CornerRadius="10"
+            IsVisible="False"
+            AbsoluteLayout.LayoutBounds="0.5,0.9,0.02,0.02"
+             AbsoluteLayout.LayoutFlags="All">
+                    
+                    <BoxView.GestureRecognizers>
+                        <PanGestureRecognizer PanUpdated="OnIndoorUserMarkerPanUpdated" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <AbsoluteLayout x:Name="routeone" IsVisible="False">
+                    
+                <Line
+                 X1="0" Y1="0"
+                 X2="50" Y2="0"
+                 Stroke="LightCoral"
+                 AbsoluteLayout.LayoutBounds="140,80,0,10"
+                 Rotation="0"
+                 StrokeThickness="4"
+                 HorizontalOptions="Center" />
+
+                <Line
+                  X1="0" Y1="0"
+                  X2="40" Y2="0"
+                  Stroke="LightCoral"
+                  AbsoluteLayout.LayoutBounds="113,59,0,10"
+                  Rotation="90"
+                  StrokeThickness="4"
+                  HorizontalOptions="Center" />
+
+                <Line
+                  X1="0" Y1="0"
+                  X2="50" Y2="0"
+                  Stroke="LightCoral"
+                  AbsoluteLayout.LayoutBounds="140,43,0,10"
+                  Rotation="0"
+                  StrokeThickness="4"
+                  HorizontalOptions="Center" />
+
+                <Line
+                  X1="0" Y1="0"
+                  X2="30" Y2="0"
+                  Stroke="LightCoral"
+                  AbsoluteLayout.LayoutBounds="150,50,0,10"
+                  Rotation="0"
+                  StrokeThickness="4"
+                  HorizontalOptions="Center" />
+
+                <Line
+                  X1="0" Y1="0"
+                  X2="8" Y2="0"
+                  Stroke="LightCoral"
+                  AbsoluteLayout.LayoutBounds="160,45,0,10"
+                  Rotation="90"
+                  StrokeThickness="4"
+                  HorizontalOptions="Center" />
+
+                </AbsoluteLayout>
+
+
+                <AbsoluteLayout x:Name="routetwo" IsVisible="False">
+
+                    <Line
+                    X1="0" Y1="0"
+                    X2="30" Y2="0"
+                    Stroke="LightCoral"
+                    AbsoluteLayout.LayoutBounds="150,43,0,10"
+                    Rotation="0"
+                    StrokeThickness="4"
+                    HorizontalOptions="Center" />
+
+                    <Line
+                   X1="0" Y1="0"
+                   X2="60" Y2="0"
+                   Stroke="LightCoral"
+                   AbsoluteLayout.LayoutBounds="132,50,0,10"
+                   Rotation="0"
+                   StrokeThickness="4"
+                   HorizontalOptions="Center" />
+
+                    <Line
+                    X1="0" Y1="0"
+                    X2="8" Y2="0"
+                    Stroke="LightCoral"
+                    AbsoluteLayout.LayoutBounds="160,45,0,10"
+                    Rotation="90"
+                    StrokeThickness="4"
+                    HorizontalOptions="Center" />
+
+                </AbsoluteLayout>
+
+
+            </AbsoluteLayout>
+
+            <StackLayout x:Name="ControlPanel"
+          Grid.Row="1"
+          Orientation="Vertical"
+          Padding="10"
+           IsVisible="False"    
+          BackgroundColor="Transparent" HeightRequest="250" WidthRequest="100" Margin="290,-200,0,0" Spacing="4">
+                <Button Text="1"  BackgroundColor="#2ec095"
+             Clicked="Button_Clicked"
+             CommandParameter="1" CornerRadius="30"
+             HorizontalOptions="CenterAndExpand" />
+                <Button Text="2"  BackgroundColor="#2ec095"
+             Clicked="OnFloorButtonClicked"
+             CommandParameter="2" CornerRadius="30"
+             HorizontalOptions="CenterAndExpand" />
+                <Button Text="3"  BackgroundColor="#2ec095"
+             Clicked="OnFloorButtonClicked"
+             CommandParameter="3" CornerRadius="30"
+             HorizontalOptions="CenterAndExpand" />
+                <Button Text="4"  BackgroundColor="#2ec095"
+             Clicked="OnFloorButtonClicked"
+             CommandParameter="4" CornerRadius="30"
+             HorizontalOptions="CenterAndExpand" />
+                <Button Text="5"  BackgroundColor="#2ec095"
+             Clicked="OnFloorButtonClicked"
+             CommandParameter="5" CornerRadius="30"
+             HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+
+           
+        </Grid>
+
+        <StackLayout Grid.Row="1"
+    Orientation="Vertical"
+    Padding="10"
+    BackgroundColor="Transparent" VerticalOptions="End" Margin="0,-120,0,0">
+
+
+            <Border HeightRequest="90" WidthRequest="340" StrokeShape="RoundRectangle 10,10,30,30" Margin="0,0,0,0" BackgroundColor="#aacbc4" StrokeThickness="2" Stroke="Aquamarine" Opacity="0.9">
+
+                  
+                        <HorizontalStackLayout>
+                            
+                        <VerticalStackLayout Margin="30,10,0,0" Spacing="-13">
+                            <Button HeightRequest="50" WidthRequest="50" CornerRadius="30" BackgroundColor="#2ec095" ImageSource="mappin.png" Margin="0,0,0,10" x:Name="FromButton" Clicked="OnFromButtonClicked"/>
+                            <Label Text="откуда" FontFamily="Somic" TextColor="White" FontAttributes="Bold" Margin="5,0,0,0"/>
+                        </VerticalStackLayout>
+                            
+                        <VerticalStackLayout Margin="20,10,0,0" Spacing="-13">
+                        <Button HeightRequest="50" WidthRequest="50" CornerRadius="30" BackgroundColor="#2ec095" ImageSource="mesto.png" Margin="0,0,0,10"  x:Name="ToButton"  Clicked="OnToButtonClicked"/>
+                        <Label Text="куда" FontFamily="Somic" TextColor="White" FontAttributes="Bold" Margin="10,0,0,0"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Margin="20,10,0,0" Spacing="-13">
+                        <Button HeightRequest="50" WidthRequest="50" CornerRadius="30" BackgroundColor="#2ec095" ImageSource="clear.png" Margin="0,0,0,10"   x:Name="ClearRouteButton"   Clicked="OnClearRouteButtonClicked"/>
+                        <Label Text="очистить" FontFamily="Somic" TextColor="White" FontAttributes="Bold" Margin="0,0,0,0"/>
+                        </VerticalStackLayout>
+
+                    <VerticalStackLayout Margin="20,10,0,0" Spacing="-13">
+                        <Button HeightRequest="50" WidthRequest="50" CornerRadius="30" BackgroundColor="#2ec095" ImageSource="strelka.png" Margin="0,0,0,10"  x:Name="LocationButton"    Clicked="OnLocationButtonClicked"/>
+                        <Label Text="место-ние" FontFamily="Somic" TextColor="White" FontAttributes="Bold" Margin="0,0,0,0"/>
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+                      
+
+
+                </Border>
+
+            </StackLayout>
+
+           
+
+
+    </Grid>
+                
+
+</ContentPage>
